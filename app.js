@@ -18,6 +18,7 @@ const Categorias = mongoose.model("categorias");
 import usuarios from "./routes/usuario.js"
 import passport from "passport";
 import auth from "./config/auth.js"
+import db from "./config/db.js"
 auth(passport)
 
 //config
@@ -105,7 +106,7 @@ app.get("/categorias/:slug", (req,res)=>{
 })
 
 //Mongoose
-mongoose.connect("mongodb://localhost/blogapp")
+mongoose.connect(db.mongoURI)
   .then(() => {
     console.log("Database connected");
   })
