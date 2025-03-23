@@ -4,6 +4,7 @@ import Usuarios from "../models/Usuario.js";
 import bcrypt from "bcryptjs";
 import passport from "passport";
 import eAdmin from "../helpers/eAdmin.js";
+import connectDB from "../connectMongo.js";
 
 const Usuario = mongoose.model("usuarios");
 const router = express.Router();

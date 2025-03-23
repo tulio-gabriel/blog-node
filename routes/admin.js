@@ -6,6 +6,7 @@ const Categorias = mongoose.model("categorias");
 import Postagens from "../models/Postagem.js";
 const Postagem = mongoose.model("postagens");
 import  eAdmin  from "../helpers/eAdmin.js";
+import connectDB from "../connectMongo.js";
 
 connectDB()
 
