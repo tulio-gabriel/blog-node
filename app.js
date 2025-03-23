@@ -18,7 +18,7 @@ const Categorias = mongoose.model("categorias");
 import usuarios from "./routes/usuario.js"
 import passport from "passport";
 import auth from "./config/auth.js"
-import db from "./config/db.js"
+import connectDB from "./connectMongo.js";
 auth(passport)
 
 //config
@@ -48,6 +48,8 @@ app.set("view engine", "handlebars");
 app.set("views", "./views");
 //Public
 app.use(express.static(path.join(__dirname, "public")));
+
+connectDB()
 
 //rotas
 app.get("/", (req, res) => {
@@ -105,12 +107,7 @@ app.get("/categorias/:slug", (req,res)=>{
   })
 })
 
-//Mongoose
-mongoose.connect(db.mongoURI)
-  .then(() => {
-    console.log("Database connected");
-  })
-  .catch((error) => console.log("Could not connect to mongo db " + error));
+
 app.use("/admin", admin);
 app.use("/usuarios",usuarios)
 
