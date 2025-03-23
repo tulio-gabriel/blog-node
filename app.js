@@ -108,11 +108,9 @@ app.get("/categorias/:slug", (req,res)=>{
 })
 
 
-app.use("/admin", admin);
-app.use("/usuarios",usuarios)
-
-
 const PORT = process.env.PORT || 8081;
-app.listen(PORT, () => {
-  console.log("servidor rodando");
+const HOST = '0.0.0.0'; // Bind to all network interfaces
+
+app.listen(PORT, HOST, () => {
+  console.log(`Server is running on http://${HOST}:${PORT}`);
 });
