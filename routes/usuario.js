@@ -8,6 +8,8 @@ import eAdmin from "../helpers/eAdmin.js";
 const Usuario = mongoose.model("usuarios");
 const router = express.Router();
 
+connectDB()
+
 router.get("/registro", (req, res) => {
   res.render("usuarios/registro");
 });

@@ -7,6 +7,8 @@ import Postagens from "../models/Postagem.js";
 const Postagem = mongoose.model("postagens");
 import  eAdmin  from "../helpers/eAdmin.js";
 
+connectDB()
+
 router.get("/", eAdmin, (req, res) => {
   res.render("admin/index");
 });
